@@ -8,61 +8,67 @@
 <script>
 
         class ElectricLamp{
-            constructor(status) {
-                this.status = status;
+            constructor() {
+                this.statusLamp = true;
             }
             getElectricLamp(){
-                return this.status;
+                return this.statusLamp;
             }
-            checkedStatus(){
-                if(this.status === "On"){
-                     return true;
-                }else if(this.status === "Off"){
-                       return  false;
-                }
 
-            }
             turnOff(){
-                if(!this.checkedStatus()){
-                    alert("Light OFF");
-                }
+                 this.statusLamp = false;
+                 alert("Light OFF");
             }
             turnON(){
-                if(this.checkedStatus()){
-                    alert("Light On");
-                }
+              this.statusLamp = true;
+              alert("Light On");
             }
+
         }
-         class SwitchButton extends ElectricLamp{
-               constructor(status) {
-                   super(status);
-               }
-               connectToLamp(ElectricLamp){
-                   if(ElectricLamp.checkedStatus()){
-                       alert("Light On");
-                   }else{
-                       alert("Light Off");
-                   }
-               }
-               swtichOn(){
-                   if(this.status === "On"){
-                       return true;
-                   }
-               }
-               switchOff(){
-                   if (this.status === "Off"){
-                       return false;
+         class switchButton{
+                 constructor() {
+                     this.status = true;
+                     this.lamp;
+                 }
 
-                   }
-               }
+             connectToLamp(ElectricLamp){
+                     this.lamp = ElectricLamp;
+                     // if(ElectricLamp.getElectricLamp()){
+                     //        alert("Light On");
+                     // }else{
+                     //     alert("Light Off");
+                     // }
+             }
+             switchOn(){
+                    this.status = true;
+                    this.lamp.turnON();
+             }
+             switchOff(){
+                      this.status = false;
+                      this.lamp.turnOff();
+             }
+
          }
+         let   Lamp = new ElectricLamp();
+        let    SB = new switchButton();
+        SB.connectToLamp(Lamp);
+        SB.switchOff();
+        SB.switchOn();
+        for (let i = 0; i <10 ; i++) {
+            SB.connectToLamp(Lamp);
+            SB.switchOff();
+            SB.switchOn();
 
-         let lamp = new ElectricLamp();
-        let switchBT = new SwitchButton();
-        switchBT.swtichOn();
-        switchBT.connectToLamp(lamp);
-        switchBT.switchOff();
-        switchBT.connectToLamp(lamp);
+
+        }
+
+
+
+
+        // switchBT.switchOff();
+        // switchBT.connectToLamp(lamp);
+
+
 
 
 
