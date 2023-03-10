@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+      class Rectangle  {
+          constructor(length,wide) {
+              this.length = length;
+              this.wide = wide;
+          }
+          Area(){
+              return this.length * this.wide;
+          }
+          Circumference(){
+               return (this.length + this.wide) * 2 ;
+          }
+          setLentg(newLengt){
+              this.length = newLengt;
+          }
+          setWide(newWide){
+              this.wide = newWide;
+          }
+          display(){
+              return "Diện tích"+this.Area()+"Chu vi"+this.Circumference();
+          }
+      }
+      let length = parseFloat(prompt("Enter length :"));
+      let wide = parseFloat(prompt("Enter Wide :"));
+      let R1 = new Rectangle(length,wide);
+      document.write(R1.display()+"<br/>");
+      let l1 = parseFloat(prompt("nhập lại chiều dài"));
+      let w1 = parseFloat(prompt("nhập lại chiều rộng"));
+      R1.setLentg(l1);
+      R1.setWide(w1);
+     document.write(R1.display());
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

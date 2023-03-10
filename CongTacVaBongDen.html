@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+        class ElectricLamp{
+            constructor(status) {
+                this.status = status;
+            }
+            getElectricLamp(){
+                return this.status;
+            }
+            checkedStatus(){
+                if(this.status === "On"){
+                     return true;
+                }else if(this.status === "Off"){
+                       return  false;
+                }
+
+            }
+            turnOff(){
+                if(!this.checkedStatus()){
+                    alert("Light OFF");
+                }
+            }
+            turnON(){
+                if(this.checkedStatus()){
+                    alert("Light On");
+                }
+            }
+        }
+         class SwitchButton extends ElectricLamp{
+               constructor(status) {
+                   super(status);
+               }
+               connectToLamp(ElectricLamp){
+                   if(ElectricLamp.checkedStatus()){
+                       alert("Light On");
+                   }else{
+                       alert("Light Off");
+                   }
+               }
+               swtichOn(){
+                   if(this.status === "On"){
+                       return true;
+                   }
+               }
+               switchOff(){
+                   if (this.status === "Off"){
+                       return false;
+
+                   }
+               }
+         }
+
+         let lamp = new ElectricLamp();
+        let switchBT = new SwitchButton();
+        switchBT.swtichOn();
+        switchBT.connectToLamp(lamp);
+        switchBT.switchOff();
+        switchBT.connectToLamp(lamp);
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

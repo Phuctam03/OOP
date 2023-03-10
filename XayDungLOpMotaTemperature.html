@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+       class Temperature{
+            constructor(c) {
+                this.c = c ;
+            }
+
+            DoiCsangF(){
+                return  (this.c*1.8+32);
+            }
+            DoiCsangK(){
+                 return (this.c+273.15);
+            }
+            setC(newC){
+                this.c = newC ;
+            }
+
+       }
+       let c = parseFloat(prompt("nhập vào độ C"));
+        while(c <-273){
+            c = parseFloat(prompt("nhập lại"));
+        }
+       let c1 =  new Temperature(c);
+    document.write(c1.DoiCsangF());
+    document.write(c1.DoiCsangK());
+          c1.setC(25);
+       document.write(c1.DoiCsangF());
+       document.write(c1.DoiCsangK());
+
+
+
+
+
+</script>
+
+</body>
+</html>

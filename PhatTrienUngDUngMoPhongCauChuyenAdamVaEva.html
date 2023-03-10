@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+     class Apple{
+         constructor() {
+             this.weight = 10 ;
+         }
+         decrease(){
+              return this.weight--;
+         }
+         getWeight(){
+             return this.weight;
+         }
+         isEmtpy(){
+             if(this.weight >0){
+                 return true;
+             }else{
+                 return  false ;
+             }
+         }
+     }
+     class Human{
+         constructor(name ,gender,weightHuman) {
+             this.name = name;
+             this.gender = gender;
+             this.weighthuman = weightHuman;
+         }
+         getName(){
+             return this.name;
+         }
+         setName(newName){
+             this.name = name;
+         }
+         getWeightHUman(){
+             return this.weighthuman;
+          }
+         setWeight(newWeightHuman){
+             this.weighthuman = newWeightHuman;
+
+         }
+         getGender(){
+             return this.gender;
+         }
+         setGender(newGender){
+              this.gender = newGender;
+         }
+         CheckGender(){
+             return (this.gender ? "Nam": "Nu");
+         }
+         checkedApple(apple){
+             if(apple.getWeight() >0){
+                 return true;
+             }else {
+                 return false;
+             }
+         }
+         eatApple(apple){
+             if(this.checkedApple(apple)){
+                 apple.decrease();
+                 this.weighthuman++;
+             }
+             document.write("kilogam of Apple :"+apple.getWeight());
+             document.write("kilogam of Human :"+this.weighthuman);
+         }
+
+
+
+
+     }
+     let apple = new Apple();
+     let adam = new Human(50,true,65);
+
+
+     adam.eatApple(apple);
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng DỤng ĐIện Thoại</title>
+</head>
+<body>
+
+
+<script>
+    let str1;
+    let Arrstr = [];
+    class Mobile{
+        constructor(State,Battery,memory1,memory2,memory3){
+            this.State= State;
+            this.Battery = Battery;
+            this.memory1 = memory1;
+            this.memory2 = memory2;
+            this.memory3 = memory3;
+
+        }
+        setState(NewState){
+              this.State = NewState ;
+        }
+        // hàm kiểm tra trạng thái bật tắt điện thoại
+        CheckState(){
+            if(this.State === "on"){
+                return true;
+            }else {
+                return  false ;
+            }
+        }
+        // hàm sạc pin
+        checkBattery(){
+            while (this.Battery < 100){
+                this.Battery++;
+                alert("Bin đang được sạc :"+this.Battery);
+            }
+        }
+        // hàm soạn tin nhắn
+        messageMemory1(){
+            if(this.CheckState()){
+                str1 = prompt("soạn tin nhắn từ Nokia :");
+                this.memory1 = str1;
+                this.Battery--;
+            }
+         }
+         // hàm lưu tin nhắn
+         saveMemory2(){
+            if(this.CheckState()){
+                this.memory2 = this.memory1;
+                Arrstr.push(this.memory2);
+                this.Battery--;
+                return Arrstr ;
+            }
+         }
+         sentMess(){
+            if(this.CheckState()){
+                this.memory3 = str1;
+                alert("tin nhắn nhận được từ Iphone :"+this.memory3);
+                this.Battery--;
+            }
+         }
+
+
+
+    }
+
+    let nokia = new Mobile("on",80,"abc","abc","abc");
+    let Iphone = new Mobile("on",70);
+    let state = prompt("nhập vào trạng thái on/off");
+     nokia.setState(state);
+    if(nokia.CheckState()){
+        alert("bật điện thoại");
+    }else {
+        alert("điên thoại đã tắt")
+    }
+
+    nokia.checkBattery();
+    nokia.messageMemory1();
+    nokia.saveMemory2();
+    Iphone.sentMess();
+
+
+
+
+</script>
+
+
+</body>
+</html>
